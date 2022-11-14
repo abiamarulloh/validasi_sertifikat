@@ -53,6 +53,8 @@ switch($view){
 	break;
 	case "tambah":
 
+	$max_nrp = mysqli_query($konek, "SELECT MAX(nrp) FROM sertifikat");
+	$current_nrp_counter = $max_nrp->fetch_array()[0] + 1
 ?>
 	<div class="row">
 		<div class="panel panel-primary">
@@ -66,7 +68,7 @@ switch($view){
 						<tr>
 							<td width="160">nrp</td>
 							<td>
-								<div class="col-md-4"><input class="form-control" type="text" name="nrp" required /></div>
+								<div class="col-md-4"><input class="form-control" type="text" value="<?= $current_nrp_counter ?>" name="nrp" required /></div>
 							</td>
 						</tr>
 						<tr>
